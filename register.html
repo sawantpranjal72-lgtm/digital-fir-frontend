@@ -1,0 +1,51 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Digital FIR System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="register-page">
+
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>Citizen Registration</h2>
+        <p class="subtitle">Create your account to file FIR online</p>
+
+        <form id="registerForm">
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Enter full name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+            </div>
+
+            <button type="button" class="login-btn" onclick="register()">
+                Register
+            </button>
+        </form>
+
+        <p class="subtitle" style="margin-top:15px">
+            Already have an account? <a href="index.html">Login</a>
+        </p>
+    </div>
+</div>
+
+<script src="js/register.js"></script>
+</body>
+</html>

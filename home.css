@@ -1,0 +1,354 @@
+/* ================= GLOBAL ================= */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #ffffff;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================= GLOBAL SECTION ================= */
+.section {
+    padding: 80px 0;
+}
+
+/* GLOBAL SECTION TITLE (ONLY ONCE) */
+.section-title {
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0a1f44;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: #1e88e5;
+    margin: 12px auto 0;
+    border-radius: 5px;
+}
+
+/* ================= HERO ================= */
+.hero-section {
+    padding: 120px 0 80px;
+    background: #f8fbff;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+.hero-buttons a {
+    margin-right: 15px;
+}
+
+.hero-image {
+    max-width: 70%;
+}
+
+/* ================= FEATURES ================= */
+.bg-light {
+    background: linear-gradient(to bottom, #f8fbff, #ffffff);
+}
+
+.feature-card {
+    background: linear-gradient(145deg, #ffffff, #f1f5ff);
+    padding: 30px 22px;
+    border-radius: 16px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    height: 100%;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #1e88e5, #42a5f5);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+.feature-card h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #0a1f44;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ================= ABOUT ================= */
+.about-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.about-section h2 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.about-section ul li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.about-img {
+    max-width: 90%;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ================= WHY US ================= */
+.why-us {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #0a1f44, #0f2f6b);
+    color: #ffffff;
+    text-align: center;
+}
+
+/* override title color ONLY for why-us */
+.why-us .section-title {
+    color: #ffffff;
+}
+
+.why-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.why-list li {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 18px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.why-list li:hover {
+    background: #ffffff;
+    color: #0a1f44;
+    transform: translateY(-6px);
+}
+
+/* ================= USER ROLES ================= */
+.roles-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.section-subtitle {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    color: #555;
+    font-size: 16px;
+}
+
+.role-card {
+    background: linear-gradient(145deg, #ffffff, #f1f5ff);
+    padding: 30px 22px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    height: 100%;
+    transition: 0.35s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+.role-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.role-card h5 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0a1f44;
+    margin-bottom: 12px;
+}
+
+.role-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* ================= HOW IT WORKS ================= */
+.how-it-works {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.step-card {
+    background: #f1f5ff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ================= SECURITY & TRUST ================= */
+.security-section {
+    background: linear-gradient(to bottom, #f8fbff, #ffffff);
+}
+
+.section-subtitle {
+    max-width: 650px;
+    margin: 15px auto 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.trust-card {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transition: 0.35s ease;
+    height: 100%;
+}
+
+.trust-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+.trust-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.trust-card h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #0a1f44;
+}
+
+.trust-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ================= NAVBAR ================= */
+.navbar-logo {
+    height: 120px;
+}
+
+.brand-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0d6efd;
+}
+/* ================= LANGUAGE SELECTOR ================= */
+.language-switch select {
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    padding: 4px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.language-switch select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.2);
+}
+
+
+/* ================= FOOTER ================= */
+.footer {
+    background: #0b1f3a;
+    color: #e5e7eb;
+    padding: 60px 0 25px;
+    font-size: 14px;
+}
+
+.footer h5 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer p {
+    line-height: 1.7;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 8px;
+}
+
+.footer ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-logo {
+    height: 65px;
+}
+
+.footer hr {
+    border-color: rgba(255,255,255,0.1);
+    margin: 30px 0 15px;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #cbd5e1;
+}

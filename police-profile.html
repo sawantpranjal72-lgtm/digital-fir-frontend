@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Police Profile</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="police-page">
+
+<div class="sidebar">
+  <h2>🚓 Digital FIR</h2>
+  <ul>
+    <li onclick="goDashboard()">Dashboard</li>
+    <li class="active">Profile</li>
+  </ul>
+</div>
+
+<div class="main-content">
+
+  <div class="dashboard-container">
+
+    <div class="dashboard-card profile-layout">
+
+      <!-- ================= FORM CARD ================= -->
+      <div class="profile-form-card">
+        <h2>👮 Police Profile</h2>
+
+        <form id="profileForm">
+          <input type="text" id="fullName" placeholder="Full Name" required>
+          <input type="text" id="badgeNumber" placeholder="Badge Number" required>
+          <input type="text" id="rank" placeholder="Rank">
+          <input type="text" id="policeStation" placeholder="Police Station">
+          <input type="text" id="mobileNumber" placeholder="Mobile Number">
+
+          <button class="btn-primary" type="submit">Save Profile</button>
+        </form>
+
+        <hr>
+
+        <!-- ================= PHOTO UPLOAD ================= -->
+        <h3>📸 Profile Photo</h3>
+
+        <input type="file" id="photoInput" accept="image/png, image/jpeg">
+
+        <button class="btn-primary" type="button" onclick="uploadPhoto()">
+          Upload Photo
+        </button>
+
+        <br><br>
+
+        <!-- PREVIEW PHOTO -->
+        <img id="preview" class="profile-img" style="display:none;" 
+
+             style="display:none;
+                    width:150px;
+                    height:150px;
+                    border-radius:50%;
+                    object-fit:cover;
+                    border:2px solid #333;">
+      </div>
+
+      <!-- ================= SAVED PROFILE CARD ================= -->
+      <div class="profile-view-card">
+        <h3>Saved Profile</h3>
+
+        <!-- SAVED PHOTO -->
+        <img id="savedPhoto" class="profile-img" 
+
+             style="display:none;
+                    width:120px;
+                    height:120px;
+                    border-radius:50%;
+                    object-fit:cover;
+                    border:2px solid #444;
+                    margin-bottom:10px;">
+
+        <div id="profileCard"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module" src="js/police-profile.js"></script>
+</body>
+</html>

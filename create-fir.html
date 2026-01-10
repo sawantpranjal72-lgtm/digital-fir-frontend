@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create FIR | Digital FIR</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="dashboard-card large">
+
+        <h2>Create FIR</h2>
+        <p class="subtitle">File a complaint securely</p>
+
+        <form id="firForm">
+
+            <div class="input-group">
+                <label>Complainant Name</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Complaint Details</label>
+                <textarea id="details" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary full">
+                Submit FIR
+            </button>
+
+        </form>
+
+        <button id="backBtn" class="logout-btn small">
+            Back
+        </button>
+
+    </div>
+</div>
+
+<script  src="js/create-fir.js"></script>
+</body>
+</html>
+
+

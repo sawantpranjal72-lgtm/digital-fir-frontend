@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | Digital FIR</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-page">
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+  <h2>🛡️ Admin</h2>
+  <ul>
+    <li onclick="showDashboard()">Dashboard</li>
+    <li onclick="showUsers()">Users</li>
+    <li onclick="showFirs()">FIR Records</li>
+    <li onclick="showPoliceProfiles()">Police Profiles</li>
+    <li onclick="logout()">Logout</li>
+  </ul>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+  <!-- DASHBOARD -->
+  <section id="dashboardSection" class="section">
+    <h1 class="page-title">Admin Dashboard</h1>
+
+    <div class="stats">
+      <div class="stat-card blue">Total Users <b id="totalUsers">0</b></div>
+      <div class="stat-card green">Police <b id="policeCount">0</b></div>
+      <div class="stat-card yellow">Citizens <b id="citizenCount">0</b></div>
+      <div class="stat-card red">Total FIRs <b id="firCount">0</b></div>
+    </div>
+
+    <!-- CHARTS (AS BEFORE) -->
+    <div class="charts">
+      <div class="chart-card">
+        <h4>User Distribution</h4>
+        <canvas id="userChart"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h4>FIR Status</h4>
+        <canvas id="firChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- USERS -->
+  <section id="userSection" class="section">
+    <h2>All Users</h2>
+    <div id="userList"></div>
+  </section>
+
+  <!-- FIR -->
+  <section id="firSection" class="section">
+    <h2>All FIR Records</h2>
+    <div id="firList"></div>
+  </section>
+
+  <!-- POLICE PROFILES -->
+  <section id="policeProfileSection" class="section">
+    <h3>👮 Police Profiles</h3>
+
+    <table border="1" width="100%">
+      <thead>
+       
+          <tr>
+  <th>Name</th>
+  <th>Badge</th>
+  <th>Station</th>
+  <th>Rank</th>
+  <th>Photo</th>
+  <th>Status</th>
+  <th>Action</th>
+</tr>
+
+       
+      </thead>
+      <tbody id="policeProfileTable"></tbody>
+    </table>
+  </section>
+  
+
+</div>
+<!-- PHOTO VIEW MODAL -->
+<div id="photoModal" class="photo-modal" onclick="closePhoto()">
+  <img id="modalImg" class="photo-modal-img">
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
