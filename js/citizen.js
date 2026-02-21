@@ -80,6 +80,81 @@ function loadMyFirs() {
     });
 }
 
+// ================= NOTIFICATIONS =================
+// ================= NOTIFICATIONS =================
+let notifVisible = false;
+
+function toggleNotifications() {
+    const box = document.getElementById("notificationBox");
+    notifVisible = !notifVisible;
+    box.style.display = notifVisible ? "block" : "none";
+
+    if (notifVisible) {
+        loadNotifications(true); // mark read
+    }
+}
+
+function loadNotifications(markRead = false) {
+    const token = localStorage.getItem("token");
+
+    fetch("http://localhost:8080/notifications", {
+        headers: {
+            Authorization: "Bearer " + token
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        const list = document.getElementById("notificationList");
+        const badge = document.getElementById("notifCount");
+
+        list.innerHTML = "";
+        let unread = 0;
+
+        if (!data || data.length === 0) {
+            badge.style.display = "none";
+            list.innerHTML = "<p>No notifications</p>";
+            return;
+        }
+
+        data.forEach(n => {
+            const div = document.createElement("div");
+            div.className = "notification-item";
+            div.innerText = n.message;
+
+            if (!n.read) {
+                unread++;
+                div.style.fontWeight = "bold";
+
+                if (markRead) {
+                    fetch(`http://localhost:8080/notifications/${n.id}/read`, {
+                        method: "PUT",
+                        headers: {
+                            Authorization: "Bearer " + token
+                        }
+                    });
+                }
+            }
+
+            list.appendChild(div);
+        });
+
+        // 🔔 badge FINAL correct value
+        if (markRead) {
+            badge.style.display = "none";
+            badge.innerText = "0";
+        } else {
+            badge.innerText = unread;
+            badge.style.display = unread > 0 ? "inline-block" : "none";
+        }
+    })
+    .catch(err => console.error(err));
+}
+
+// 🔁 initial unread count
+document.addEventListener("DOMContentLoaded", () => {
+    loadNotifications(false);
+});
 // ================= NAV =================
 function uploadEvidence(firId) {
     window.location.href = `upload-evidence.html?firId=${firId}`;
@@ -99,4 +174,3 @@ function logout() {
     localStorage.clear();
     window.location.href = "index.html";
 }
-

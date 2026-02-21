@@ -215,6 +215,78 @@ function showProfile() {
   window.location.href = "police-profile.html";
 }
 
+
+// ================= POLICE NOTIFICATIONS =================
+let notifVisible = false;
+
+function toggleNotifications() {
+  const box = document.getElementById("notificationBox");
+  notifVisible = !notifVisible;
+  box.style.display = notifVisible ? "block" : "none";
+
+  if (notifVisible) {
+    loadNotifications(true);
+  }
+}
+
+function loadNotifications(markRead = false) {
+  fetch("http://localhost:8080/notifications", {
+    headers: {
+      Authorization: "Bearer " + token
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    const list = document.getElementById("notificationList");
+    const badge = document.getElementById("notifCount");
+
+    list.innerHTML = "";
+    let unread = 0;
+
+    if (!data || data.length === 0) {
+      badge.style.display = "none";
+      list.innerHTML = "<p>No notifications</p>";
+      return;
+    }
+
+    data.forEach(n => {
+      const div = document.createElement("div");
+      div.className = "notification-item";
+      div.innerText = n.message;
+
+      if (!n.read) {
+        unread++;
+        div.style.fontWeight = "bold";
+
+        if (markRead) {
+          fetch(`http://localhost:8080/notifications/${n.id}/read`, {
+            method: "PUT",
+            headers: { Authorization: "Bearer " + token }
+          });
+        }
+      }
+      list.appendChild(div);
+    });
+
+    if (markRead) {
+      badge.style.display = "none";
+      badge.innerText = "0";
+    } else {
+      badge.innerText = unread;
+      badge.style.display = unread > 0 ? "inline-block" : "none";
+    }
+  });
+}
+
+// initial load
+document.addEventListener("DOMContentLoaded", () => {
+  loadNotifications(false);
+});
+
+// expose
+window.toggleNotifications = toggleNotifications;
+
+
 // ================= LOGOUT =================
 document.getElementById("logoutBtn").onclick = () => {
   localStorage.clear();

@@ -18,6 +18,20 @@
     <li onclick="showPoliceProfiles()">Police Profiles</li>
     <li onclick="logout()">Logout</li>
   </ul>
+  <!-- 🔔 Notification Bell -->
+    <div class="notification-bar" onclick="toggleNotifications()">
+      🔔
+      <span class="badge" id="notifCount" style="display:none">0</span>
+    </div>
+  </div>
+</div>
+
+<!-- 🔔 Notification Box -->
+<div class="notification-box" id="notificationBox" style="display:none">
+  <h4>Notifications</h4>
+  <button onclick="toggleNotifications()">✖</button>
+  <div id="notificationList"></div>
+</div>
 </div>
 
 <!-- ===== MAIN CONTENT ===== -->

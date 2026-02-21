@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Notifications</title>
+</head>
+<body>
+
+<h2>🔔 Notifications</h2>
+<ul id="notifList"></ul>
+
+<script>
+const token = localStorage.getItem("token");
+
+fetch("http://localhost:8080/notifications", {
+    headers: {
+        "Authorization": "Bearer " + token
+    }
+})
+.then(res => res.json())
+.then(data => {
+    const ul = document.getElementById("notifList");
+
+    data.forEach(n => {
+        const li = document.createElement("li");
+        li.innerText = n.message + (n.read ? "" : " (NEW)");
+
+        if (!n.read) {
+            li.style.fontWeight = "bold";
+            li.style.cursor = "pointer";
+        }
+
+        li.addEventListener("click", () => {
+            if (n.read) return;
+
+            fetch(`http://localhost:8080/notifications/${n.id}/read`, {
+                method: "PUT",
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            })
+            .then(res => {
+                if (res.ok) {
+                    li.innerText = n.message;
+                    li.style.fontWeight = "normal";
+                }
+            });
+        });
+
+        ul.appendChild(li);
+    });
+});
+</script>
+
+</body>
+</html>

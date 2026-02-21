@@ -15,14 +15,15 @@ fetch("/api/admin/users", {
                 <td>${u.name}</td>
                 <td>${u.email}</td>
                 <td>${u.role}</td>
-                <td>${u.enabled ? "ACTIVE" : "DISABLED"}</td>
-                <td>
-                    ${u.role === "POLICE" ?
-                        `<button onclick="toggle(${u.id})">Toggle</button>` :
-                        "-"
-                    }
-                </td>
-            </tr>
+             <td class="${u.enabled ? 'status-active' : 'status-disabled'}">
+  ${u.enabled ? "ACTIVE" : "DISABLED"}
+</td>
+<td>
+  ${u.role === "POLICE"
+    ? `<button class="toggle-btn" onclick="toggle(${u.id})">Toggle</button>`
+    : "-"
+  }
+</td>
         `;
     });
 });
