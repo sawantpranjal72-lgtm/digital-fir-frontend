@@ -18,7 +18,7 @@ function uploadEvidence() {
     const formData = new FormData();
     formData.append("file", fileInput.files[0]);
 
-    fetch(`http://localhost:8080/api/evidence/upload/${firId}`, {
+    fetch(`http://34.235.155.152:8080/api/evidence/upload/${firId}`, {
         method: "POST",
         headers: {
             "Authorization": "Bearer " + token

@@ -30,7 +30,7 @@ function loadMyFirs() {
 
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:8080/api/fir/my", {
+    fetch("http://34.235.155.152:8080/api/fir/my", {
         headers: {
             Authorization: "Bearer " + token
         }
@@ -97,7 +97,7 @@ function toggleNotifications() {
 function loadNotifications(markRead = false) {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:8080/notifications", {
+    fetch("http://34.235.155.152:8080/notifications", {
         headers: {
             Authorization: "Bearer " + token
         }
@@ -127,7 +127,7 @@ function loadNotifications(markRead = false) {
                 div.style.fontWeight = "bold";
 
                 if (markRead) {
-                    fetch(`http://localhost:8080/notifications/${n.id}/read`, {
+                    fetch(`http://34.235.155.152:8080/notifications/${n.id}/read`, {
                         method: "PUT",
                         headers: {
                             Authorization: "Bearer " + token

@@ -26,7 +26,7 @@ function toggleNotifications() {
 }
 
 function loadNotifications(markRead = false) {
-  fetch("http://localhost:8080/notifications", {
+  fetch("http://34.235.155.152:8080/notifications", {
     headers: {
       Authorization: "Bearer " + token
     }
@@ -55,7 +55,7 @@ function loadNotifications(markRead = false) {
         div.style.fontWeight = "bold";
 
         if (markRead) {
-          fetch(`http://localhost:8080/notifications/${n.id}/read`, {
+          fetch(`http://34.235.155.152:8080/notifications/${n.id}/read`, {
             method: "PUT",
             headers: { Authorization: "Bearer " + token }
           });
@@ -117,7 +117,7 @@ function loadDashboard() {
 let userChart;
 
 function loadUsers() {
-  fetch("http://localhost:8080/api/admin/users", {
+  fetch("http://34.235.155.152:8080/api/admin/users", {
     headers: { Authorization: "Bearer " + token }
   })
   .then(res => res.json())
@@ -166,7 +166,7 @@ function loadUsers() {
 let firChart;
 
 function loadFirs() {
-  fetch("http://localhost:8080/api/fir/all", {
+  fetch("http://34.235.155.152:8080/api/fir/all", {
     headers: { Authorization: "Bearer " + token }
   })
   .then(res => res.json())
@@ -211,7 +211,7 @@ function loadFirs() {
 
 // ================= POLICE PROFILES =================
 function loadPoliceProfiles() {
-  fetch("http://localhost:8080/api/admin/police-profiles", {
+  fetch("http://34.235.155.152:8080/api/admin/police-profiles", {
     headers: { Authorization: "Bearer " + token }
   })
   .then(res => res.json())
@@ -264,7 +264,7 @@ function openPhoto(src) {
 function togglePolice(userId) {
   if (!confirm("Change police status?")) return;
 
-  fetch(`http://localhost:8080/api/admin/toggle-user/${userId}`, {
+  fetch(`http://34.235.155.152:8080/api/admin/toggle-user/${userId}`, {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + token

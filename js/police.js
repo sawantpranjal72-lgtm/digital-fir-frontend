@@ -15,7 +15,7 @@ let barChart = null;
 
 // ================= LOAD FIRs =================
 function loadAllFirs() {
-  fetch("http://localhost:8080/api/fir/all", {
+  fetch("http://34.235.155.152:8080/api/fir/all", {
     headers: { Authorization: "Bearer " + token }
   })
     .then(res => res.json())

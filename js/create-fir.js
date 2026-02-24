@@ -11,7 +11,7 @@ document.getElementById("firForm").addEventListener("submit", function (e) {
     const name = document.getElementById("name").value;
     const details = document.getElementById("details").value;
 
-    fetch("http://localhost:8080/api/fir/create", {
+    fetch("http://34.235.155.152:8080/api/fir/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

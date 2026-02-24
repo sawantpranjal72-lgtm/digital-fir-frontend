@@ -12,7 +12,7 @@ if (!evidenceId) {
     alert("Evidence ID missing");
 }
 
-fetch(`http://localhost:8080/api/evidence/view/${evidenceId}`, {
+fetch(`http://34.235.155.152:8080/api/evidence/view/${evidenceId}`, {
     headers: {
         "Authorization": "Bearer " + token
     }
