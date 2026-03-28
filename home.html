@@ -12,6 +12,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body class="home-page">
@@ -34,9 +35,9 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav gap-3">
                 <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
-                <li class="nav-item"><a class="nav-link" href="dashboard.html">FIR Status</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="loginBtn">Login</a></li>
+               <li class="nav-item"><a class="nav-link" href="#" id="registerBtn">Register</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#" onclick="checkFirStatus()">FIR Status</a></li>
                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
        
             </ul>
@@ -55,10 +56,6 @@
                     First Information Reports online and track them efficiently.
                 </p>
 
-                <div class="hero-buttons">
-                    <a href="register.html" class="btn btn-primary btn-lg">Register FIR</a>
-                    <a href="dashboard.html" class="btn btn-outline-primary btn-lg">Check FIR Status</a>
-                </div>
             </div>
 
             <div class="col-lg-6 text-center">
@@ -282,6 +279,122 @@
     </div>
 </section>
 
+<!-- LOGIN POPUP -->
+ 
+<!-- LOGIN MODAL -->
+
+<div id="loginModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close">&times;</span>
+
+<h4>Secure Login</h4>
+
+<form id="loginForm">
+
+<input type="email" id="email" placeholder="Enter Email" required>
+
+<div class="password-box">
+
+<input type="password" id="password" placeholder="Enter Password" required>
+
+<span id="togglePassword">👁</span>
+
+</div>
+
+<div class="captcha-box">
+
+<span id="captchaText"></span>
+
+<button type="button" onclick="generateCaptcha()">↻</button>
+
+</div>
+
+<input type="text" id="captchaInput" placeholder="Enter Captcha" required>
+
+<button type="submit">Login</button>
+
+<p class="forgot">
+
+<a href="#" id="forgotLink">Forgot Password?</a>
+
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- FORGOT PASSWORD -->
+
+<div id="forgotModal" class="modal">
+
+<div class="modal-content">
+
+<span class="closeForgot">&times;</span>
+
+<h3>Forgot Password</h3>
+
+<input type="email" id="forgotEmail" placeholder="Enter email">
+
+<button id="sendReset">Send Reset Link</button>
+
+</div>
+
+</div>
+
+
+<!-- REGISTER MODAL -->
+
+<div id="registerModal" class="modal">
+
+<div class="modal-content">
+
+<span class="closeRegister">&times;</span>
+
+<h2>Citizen Registration</h2>
+
+<form id="registerForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="email" id="regEmail" placeholder="Email" required>
+
+<div class="password-box">
+
+<input type="password" id="regPassword" placeholder="Password" required>
+
+<span id="toggleRegPassword">👁</span>
+
+</div>
+
+<div class="password-box">
+
+<input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+<span id="toggleConfirmPassword">👁</span>
+
+</div>
+
+<button type="button" onclick="register()">Register</button>
+
+</form>
+
+<p>
+
+Already have account?
+
+<a href="#" id="openLogin">Login</a>
+
+</p>
+
+</div>
+
+</div>
+
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container">
@@ -337,7 +450,10 @@
 
 
 <!-- Bootstrap JS -->
+ <script src="js/config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="home.js"></script>
+<script src="js/home.js"></script>
+<script src="js/login.js"></script>
+<script src="js/register.js"></script>
 </body>
 </html>

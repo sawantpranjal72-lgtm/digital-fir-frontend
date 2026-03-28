@@ -7,8 +7,9 @@
 
 <h2>🔔 Notifications</h2>
 <ul id="notifList"></ul>
-
+<script src="js/config.js"></script>
 <script>
+    
 const token = localStorage.getItem("token");
 
 fetch("http://localhost:8080/notifications", {

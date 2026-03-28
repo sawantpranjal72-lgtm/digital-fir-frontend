@@ -10,7 +10,7 @@ const firId = params.get("firId");
 
 const listDiv = document.getElementById("evidenceList");
 
-fetch(`http://34.235.155.152:8080/api/evidence/fir/${firId}`, {
+fetch(`http://localhost:8080/api/evidence/fir/${firId}`, {
     headers: {
         Authorization: "Bearer " + token
     }
@@ -39,7 +39,7 @@ fetch(`http://34.235.155.152:8080/api/evidence/fir/${firId}`, {
 
             <a class="btn-primary"
                target="_blank"
-               href="http://34.235.155.152:8080/api/evidence/view/${ev.id}">
+               href="http://localhost:8080/api/evidence/view/${ev.id}">
                View
             </a>
         `;

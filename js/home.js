@@ -59,6 +59,24 @@ function handleStickyNavbar() {
         }
     });
 }
+function checkFirStatus() {
+
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
+
+    if (!token) {
+        alert("Please login first");
+        document.getElementById("loginModal").style.display = "flex";
+        return;
+    }
+
+    if (role !== "ROLE_CITIZEN") {
+        alert("Only Citizen can access FIR status");
+        return;
+    }
+
+    window.location.href = "dashboard.html";
+}
 
 // ==================================
 // Future Enhancements (Do NOT code here)

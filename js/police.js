@@ -15,7 +15,7 @@ let barChart = null;
 
 // ================= LOAD FIRs =================
 function loadAllFirs() {
-  fetch("http://34.235.155.152:8080/api/fir/all", {
+  fetch("http://localhost:8080/api/fir/all", {
     headers: { Authorization: "Bearer " + token }
   })
     .then(res => res.json())
@@ -290,7 +290,7 @@ window.toggleNotifications = toggleNotifications;
 // ================= LOGOUT =================
 document.getElementById("logoutBtn").onclick = () => {
   localStorage.clear();
-  window.location.href = "index.html";
+  window.location.href = "home.html";
 };
 
 // ================= INIT =================

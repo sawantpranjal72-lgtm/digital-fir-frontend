@@ -9,15 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!token || role !== "ROLE_CITIZEN") {
         alert("Unauthorized access");
-        window.location.href = "index.html";
+        window.location.href = "home.html";
         return;
     }
+
+    // 🔔 load notifications count initially
+    loadNotifications(false);
 });
+
 
 // ================= CREATE FIR =================
 function openCreateFir() {
     window.location.href = "create-fir.html";
 }
+
 
 // ================= LOAD MY FIRs =================
 function loadMyFirs() {
@@ -30,7 +35,7 @@ function loadMyFirs() {
 
     const token = localStorage.getItem("token");
 
-    fetch("http://34.235.155.152:8080/api/fir/my", {
+    fetch("http://localhost:8080/api/fir/my", {
         headers: {
             Authorization: "Bearer " + token
         }
@@ -76,28 +81,31 @@ function loadMyFirs() {
         firSection.scrollIntoView({ behavior: "smooth" });
     })
     .catch(err => {
+        console.error(err);
         alert(err.message);
     });
 }
 
-// ================= NOTIFICATIONS =================
+
 // ================= NOTIFICATIONS =================
 let notifVisible = false;
 
 function toggleNotifications() {
     const box = document.getElementById("notificationBox");
+
     notifVisible = !notifVisible;
     box.style.display = notifVisible ? "block" : "none";
 
     if (notifVisible) {
-        loadNotifications(true); // mark read
+        loadNotifications(true); // mark as read
     }
 }
 
 function loadNotifications(markRead = false) {
+
     const token = localStorage.getItem("token");
 
-    fetch("http://34.235.155.152:8080/notifications", {
+    fetch("http://localhost:8080/notifications", {
         headers: {
             Authorization: "Bearer " + token
         }
@@ -118,6 +126,7 @@ function loadNotifications(markRead = false) {
         }
 
         data.forEach(n => {
+
             const div = document.createElement("div");
             div.className = "notification-item";
             div.innerText = n.message;
@@ -127,7 +136,7 @@ function loadNotifications(markRead = false) {
                 div.style.fontWeight = "bold";
 
                 if (markRead) {
-                    fetch(`http://34.235.155.152:8080/notifications/${n.id}/read`, {
+                    fetch(`http://localhost:8080/notifications/${n.id}/read`, {
                         method: "PUT",
                         headers: {
                             Authorization: "Bearer " + token
@@ -139,7 +148,7 @@ function loadNotifications(markRead = false) {
             list.appendChild(div);
         });
 
-        // 🔔 badge FINAL correct value
+        // 🔔 badge count
         if (markRead) {
             badge.style.display = "none";
             badge.innerText = "0";
@@ -147,15 +156,13 @@ function loadNotifications(markRead = false) {
             badge.innerText = unread;
             badge.style.display = unread > 0 ? "inline-block" : "none";
         }
+
     })
     .catch(err => console.error(err));
 }
 
-// 🔁 initial unread count
-document.addEventListener("DOMContentLoaded", () => {
-    loadNotifications(false);
-});
-// ================= NAV =================
+
+// ================= NAVIGATION =================
 function uploadEvidence(firId) {
     window.location.href = `upload-evidence.html?firId=${firId}`;
 }
@@ -165,12 +172,20 @@ function viewEvidenceList(firId) {
 }
 
 function goBack() {
-    document.getElementById("firSection").style.display = "none";
-    document.getElementById("top").scrollIntoView({ behavior: "smooth" });
+    const firSection = document.getElementById("firSection");
+
+    firSection.style.display = "none";
+
+    // scroll to top properly
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
+
 
 // ================= LOGOUT =================
 function logout() {
     localStorage.clear();
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 }
